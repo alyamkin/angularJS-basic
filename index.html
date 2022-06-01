@@ -12,7 +12,7 @@
           <p>{{ movie.title }} {{ $index }}</p>
           <p>Released in: {{ movie.year }}</p>
           <p ng-show="movie.popular">This movie is popular!</p>
-          <p ng-show="movie.year > 2000">This movie is quite new!</p>
+          <p ng-if="movie.year > 2000">This movie is quite new!</p>
         </li>
       </ul>
     </div>
