@@ -13,6 +13,12 @@
           <p>Released in: {{ movie.year }}</p>
           <p ng-show="movie.popular">This movie is popular!</p>
           <p ng-if="movie.year > 2000">This movie is quite new!</p>
+          <div ng-switch="movie.category">
+            <p ng-switch-when="thriller">Thriller movie!</p>
+            <p ng-switch-when="fantasy">Fantasy movie!</p>
+            <p ng-switch-when="action">Action movie!</p>
+            <p ng-switch-default>Movie has no category</p>
+          </div>
         </li>
       </ul>
     </div>
