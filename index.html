@@ -2,13 +2,31 @@
   <head>
     <title>My Angular app</title>
     <script src="js/angular.js"></script>
+    <style>
+      .old {
+        background: red;
+      }
+      .modern {
+        background: blue;
+      }
+      .new {
+        background: green;
+      }
+    </style>
   </head>
   <body>
     <div ng-controller="MainController">{{ name }}</div>
 
     <div ng-controller="MoviesController as movies">
       <ul>
-        <li ng-repeat="movie in movies.favorites">
+        <li
+          ng-class="{
+          old: movie.year < 1995,
+          modern: movie.year > 1995 && movie.year < 2000,
+          new: movie.year > 2000
+        }"
+          ng-repeat="movie in movies.favorites"
+        >
           <p>{{ movie.title }} {{ $index }}</p>
           <p>Released in: {{ movie.year }}</p>
           <p ng-show="movie.popular">This movie is popular!</p>
