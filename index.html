@@ -108,9 +108,21 @@
       </ul>
     </div> -->
 
-    <div ng-controller="MainController as main">
+    <!-- <div ng-controller="MainController as main">
       <p>{{ main.myDate | date: 'HH:MM:ss' }}</p>
       <p>{{ main.myAmount | currency: 'USD':0 }}</p>
+    </div> -->
+
+    <div ng-controller="MoviesController as movies">
+      <a href="" ng-click="type = 'year'">Year</a>
+      <a href="" ng-click="type = 'title'">Title</a>
+      <input type="text" placeholder="Search by year" ng-model="search" />
+      <ul>
+        <li ng-repeat="movie in movies.favorites | filter: {year: search}">
+          <p>{{ movie.title }}</p>
+          <p>Released in: {{ movie.year }}</p>
+        </li>
+      </ul>
     </div>
 
     <script src="js/app.js"></script>
