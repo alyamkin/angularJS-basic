@@ -1,4 +1,14 @@
 function MoviesController() {
+  this.likedList = [];
+
+  this.removeFromLikeList = function (index) {
+    this.likedList.splice(index, 1);
+  };
+
+  this.addToLikeList = function (movie) {
+    this.likedList.push(movie);
+  };
+
   this.favorites = [
     {
       title: "The Shawshank Redemption",

@@ -12,12 +12,18 @@
       .new {
         background: green;
       }
+      .likes {
+        background-color: #888;
+        border: 1px solid #333;
+        border-radius: 3px;
+        width: 100%;
+      }
     </style>
   </head>
   <body>
-    <div ng-controller="MainController">{{ name }}</div>
+    <!-- <div ng-controller="MainController">{{ name }}</div> -->
 
-    <div ng-controller="MoviesController as movies">
+    <!-- <div ng-controller="MoviesController as movies">
       <ul>
         <li
           ng-class="{
@@ -42,6 +48,30 @@
             <p ng-switch-default>Movie has no category</p>
             <input type="text" ng-model="movie.year" />
           </div>
+        </li>
+      </ul>
+    </div> -->
+
+    <div ng-controller="MoviesController as movies">
+      <div class="likes">
+        <p>Andrey's like list</p>
+        <ul>
+          <li ng-repeat="likeMovie in movies.likedList">
+            <p>
+              {{likeMovie.title}}
+              <span
+                ><a href="" ng-click="movies.removeFromLikeList($index)"
+                  >Unlike</a
+                ></span
+              >
+            </p>
+          </li>
+        </ul>
+      </div>
+      <ul>
+        <li ng-repeat="movie in movies.favorites">
+          <p>{{movie.title}}</p>
+          <a href="" ng-click="movies.addToLikeList(movie)">Like this movie</a>
         </li>
       </ul>
     </div>
