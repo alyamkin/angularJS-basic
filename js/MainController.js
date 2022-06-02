@@ -1,7 +1,5 @@
-function MainController(a) {
-  a.name = "Todd";
+function MainController() {
+  this.myDate = 1288323623006;
 }
-
-MainController.$inject = ["$scope"];
 
 angular.module("app").controller("MainController", MainController);
