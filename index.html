@@ -113,7 +113,7 @@
       <p>{{ main.myAmount | currency: 'USD':0 }}</p>
     </div> -->
 
-    <div ng-controller="MoviesController as movies">
+    <!-- <div ng-controller="MoviesController as movies">
       <a href="" ng-click="type = 'year'">Year</a>
       <a href="" ng-click="type = 'title'">Title</a>
       <input type="text" placeholder="Search by year" ng-model="search" />
@@ -123,10 +123,19 @@
           <p>Released in: {{ movie.year }}</p>
         </li>
       </ul>
+    </div> -->
+
+    <div ng-controller="UserController as user">
+      <form ng-submit="user.getUser();">
+        <input type="text" ng-model="user.userId" />
+        <button type="submit">Search user</button>
+      </form>
+      <pre>{{user.chosenUser}}</pre>
     </div>
 
     <script src="js/app.js"></script>
     <script src="js/MainController.js"></script>
     <script src="js/MoviesController.js"></script>
+    <script src="js/UserController.js"></script>
   </body>
 </html>
