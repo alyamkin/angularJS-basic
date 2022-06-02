@@ -83,13 +83,19 @@
     </div> -->
 
     <div ng-controller="MoviesController as movies">
-      <form ng-submit="movies.addNewMovie()">
+      <form ng-submit="movies.addNewMovie();">
         <p>Add a movie</p>
-        <input type="text" placeholder="Title" ng-model="movies.newTitle" />
+        <input
+          type="text"
+          placeholder="Title"
+          ng-model="movies.newTitle"
+          ng-focus="movies.onFocus();"
+        />
         <input
           type="text"
           placeholder="Release Year"
           ng-model="movies.newReleaseYear"
+          ng-blur="movies.onBlur();"
         />
         <button type="submit">Add new movie</button>
       </form>
