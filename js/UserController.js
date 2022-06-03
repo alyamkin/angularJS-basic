@@ -1,20 +1,24 @@
-function UserController($http) {
+function UserController(UserService) {
   let ctrl = this;
   let API = `//jsonplaceholder.typicode.com/users/`;
   this.userId = "";
   this.chosenUser = {};
+  this.allUsers = [];
+
+  this.getAllUsers = function () {
+    UserService.getAllUsers().then(function (response) {
+      ctrl.allUsers = response;
+    });
+  };
+
   this.getUser = function () {
     if (!this.userId) {
       return;
     }
-    $http.get(API + this.userId).then(
-      function (response) {
-        ctrl.chosenUser = response.data;
-      },
-      function (reason) {
-        console.log(reason);
-      }
-    );
+
+    UserService.getUser(this.userId).then(function (response) {
+      ctrl.chosenUser = response;
+    });
   };
 }
 
