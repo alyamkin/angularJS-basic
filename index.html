@@ -127,7 +127,7 @@
 
     <div ng-controller="UserController as user">
       <form ng-submit="user.getUser();">
-        <input type="text" ng-model="user.userId" />
+        <input type="text" ng-model="user.userId" stretch />
         <button type="submit">Search user</button>
         <button type="button" ng-click="user.getAllUsers();">
           Get All Users
@@ -142,5 +142,6 @@
     <script src="js/MoviesController.js"></script>
     <script src="js/UserController.js"></script>
     <script src="js/UserService.js"></script>
+    <script src="js/stretch.directive.js"></script>
   </body>
 </html>
