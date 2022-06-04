@@ -18,11 +18,23 @@
         border-radius: 3px;
         width: 100%;
       } */
-      form {
+      /* form {
         background: #f9f9f9;
         border-radius: 3px;
         border: 1px solid #e5e5e5;
         padding: 10px;
+      } */
+
+      .counter {
+        background: #f9f9f9;
+        padding: 15px;
+        border-radius: 4px;
+      }
+      .counter button {
+        background: #338dbc;
+        border: 0;
+        border-radius: 3px;
+        color: #fff;
       }
     </style>
   </head>
@@ -125,7 +137,7 @@
       </ul>
     </div> -->
 
-    <div ng-controller="UserController as user">
+    <!-- <div ng-controller="UserController as user">
       <form ng-submit="user.getUser();">
         <input type="text" ng-model="user.userId" stretch />
         <button type="submit">Search user</button>
@@ -135,6 +147,11 @@
       </form>
       <pre>{{user.chosenUser}}</pre>
       <pre>{{user.allUsers}}</pre>
+    </div> -->
+
+    <div ng-controller="OrderController as order">
+      <h1>Order count: {{ order.orderQuantity}}</h1>
+      <counter name="order.orderName" count="order.orderQuantity"></counter>
     </div>
 
     <script src="js/app.js"></script>
@@ -143,5 +160,8 @@
     <script src="js/UserController.js"></script>
     <script src="js/UserService.js"></script>
     <script src="js/stretch.directive.js"></script>
+    <script src="js/counter.directive.js"></script>
+    <script src="js/CounterController.js"></script>
+    <script src="js/OrderController.js"></script>
   </body>
 </html>
