@@ -25,7 +25,7 @@
         padding: 10px;
       } */
 
-      .counter {
+      /* .counter {
         background: #f9f9f9;
         padding: 15px;
         border-radius: 4px;
@@ -35,6 +35,40 @@
         border: 0;
         border-radius: 3px;
         color: #fff;
+      } */
+
+      form {
+        max-width: 200px;
+        margin: 0 auto;
+        border-radius: 3px;
+        background: #f9f9f9;
+        padding: 25px;
+      }
+      form input,
+      form textarea {
+        margin: 0 0 10px;
+        width: 100%;
+        background: #fff;
+        border-radius: 3px;
+        border: 1px solid #e5e5e5;
+      }
+      form select {
+        -webkit-appearance: button;
+        margin: 0 0 10px;
+        width: 100%;
+        background: #fff;
+        border-radius: 3px;
+        border: 1px solid #e5e5e5;
+      }
+      form button {
+        background: #338dbc;
+        color: #fff;
+        width: 100%;
+        border: 0;
+        border-radius: 3px;
+      }
+      form button:disabled {
+        opacity: 0.5;
       }
     </style>
   </head>
@@ -149,9 +183,16 @@
       <pre>{{user.allUsers}}</pre>
     </div> -->
 
-    <div ng-controller="OrderController as order">
+    <!-- <div ng-controller="OrderController as order">
       <h1>Order count: {{ order.orderQuantity}}</h1>
       <counter name="order.orderName" count="order.orderQuantity"></counter>
+    </div> -->
+
+    <div ng-controller="OrderController as order">
+      <order-form
+        data="order.customerOrder"
+        submit="order.submitOrder();"
+      ></order-form>
     </div>
 
     <script src="js/app.js"></script>
@@ -163,5 +204,7 @@
     <script src="js/counter.directive.js"></script>
     <script src="js/CounterController.js"></script>
     <script src="js/OrderController.js"></script>
+    <script src="js/OrderFormController.js"></script>
+    <script src="js/order-form.directive.js"></script>
   </body>
 </html>
