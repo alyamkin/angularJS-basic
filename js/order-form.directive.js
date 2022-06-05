@@ -21,8 +21,8 @@ function orderForm() {
           <option value="">Select...</option>
 
         </select>
-        <textarea required="" placeholder="Any messages (optional)" ng-model="form.data.comments"></textarea>
-        <button type="submit">Order</Order>
+        <textarea placeholder="Any messages (optional)" ng-model="form.data.comments"></textarea>
+        <button type="submit" ng-disabled="orderForm.$invalid">Order</Order>
       </form>
     `,
   };
